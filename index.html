@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist</title>
+</head>
+<style>
+    body {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-weight: 400;
+}
+
+.frame {
+    background-color: #3579F5;
+    padding: 12px 18px 15px 22px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 743px;
+    box-sizing: border-box;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.progress-circle {
+    width: 60px;
+    height: 60px;
+    transform: rotate(-90deg);
+}
+
+.circle-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.2);
+    stroke-width: 1;
+}
+
+.circle {
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 100;
+    stroke-dashoffset: calc(100 - var(--progress));
+    transition: stroke-dashoffset 0.35s;
+    transform: rotate(90deg);
+    transform-origin: 50% 50%;
+}
+
+.progress-text {
+    position: absolute;
+    z-index: 1;
+    font-weight: 400;
+    color: white;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.content {
+    color: white;
+    margin-right: auto;
+}
+
+.status{
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.checklist, .status, .next-action {
+    margin: 5px 0;  
+}
+
+.next-action{
+    font-size: 12px;
+}
+
+.open-checklist {
+    background-color: white;
+    color: #4683EA;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    right: 0;
+    width: 170px;
+    height: 40px;
+}
+
+.checklist{
+    width: 76px;
+    height: 18px;
+    border-radius: 40px;
+    background-color: #2364DB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+</style>
+<body>
+    <div class="frame">
+        <div class="progress-container">
+            <svg class="progress-circle" viewBox="0 0 36 36">
+                <path
+                    class="circle-bg"
+                    d="M18 2.0845
+                       a 15.9155 15.9155 0 0 1 0 31.831
+                       a 15.9155 15.9155 0 0 1 0 -31.831"
+                />
+                <path
+                    class="circle"
+                    style="--progress: 20;"
+                    d="M18 2.0845
+                       a 15.9155 15.9155 0 0 1 0 31.831
+                       a 15.9155 15.9155 0 0 1 0 -31.831"
+                />
+            </svg>
+            <div class="progress-text">0/7</div>
+        </div>
+        <div class="content">
+            <div class="checklist">Чеклист</div>
+            <div class="status">Выполнено: 0 из 7 действий</div>
+            <div class="next-action">Следующее действие: Созвониться с клиентом до 23.05.24 12:00</div>
+        </div>
+        <button class="open-checklist">Открыть чеклист</button>
+    </div>
+</body>
+</html>
